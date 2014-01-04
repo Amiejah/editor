@@ -1,3 +1,3 @@
 $(function(){
-  asdjks
+    $('.className').CCEDITOR();
 })
