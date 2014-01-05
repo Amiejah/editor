@@ -1,3 +1,3 @@
 $(function(){
-    $('.className').CCEDITOR();
+    $('.className, .className2').CCEDITOR();
 })

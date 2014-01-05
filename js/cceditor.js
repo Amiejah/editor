@@ -18,10 +18,10 @@
                     width: settings.width,
                     height: settings.height
                 },
-                class: 'cce_wysiwyg_frame cce_reset cce_count_' + i
+                class: 'cce_wysiwyg_frame cce_reset cce'
             });
-            $(CCEDITOR).insertAfter($this);
-            CCEDITOR[0].contentDocument.body.contentEditable = "true";
+
+            $(CCEDITOR).insertAfter(this);
         });
 
 
