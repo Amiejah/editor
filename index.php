@@ -8,12 +8,9 @@
 </head>
 <body>
     <section class="wrapper">
-        <form name="NewThreadPost" action="/" method="post">
-            <textarea class="className"></textarea>
-        </form>
-
-        <form name="NewThreadPost" action="/" method="post">
-            <textarea class="className2"></textarea>
+        <form name="NewThreadForm" action="post.php" method="post">
+            <textarea class="className" name="NewThreadForm[pagetext]">This is a test to test bla bla bla</textarea>
+            <button type="submit">Save</button>
         </form>
 
     </section>
