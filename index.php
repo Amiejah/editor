@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Editor</title>
+    <link rel="stylesheet" href="css/base.css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/cceditor.js"></script>
     <script src="js/control.js"></script>
