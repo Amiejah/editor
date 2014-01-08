@@ -67,13 +67,13 @@
 
             // Check if the textarea contains any classes, id's or name value
             // Use these values to set them on the iframe
-            if(textarea.attr('class')){
+            if(textarea.attr('class'))
                 iframe.className = textarea.attr('class');
-            } else if(textarea.attr('id')) {
+            if(textarea.attr('id'))
                 iframe.id = textarea.attr('id');
-            } else if(textarea.attr('name')) {
-                iframe.id = textarea.attr('name');
-            }
+            if(textarea.attr('name'))
+                iframe.title= textarea.attr('name');
+
 
             // Add the iframe
             textarea.after(iframe);
@@ -102,9 +102,9 @@
             var content = iframe.contentWindow.document.getElementsByTagName("body")[0].innerHTML;
 
             if(submit == true) {
-                var textarea = $('<input type="hidden" name="' + settings.inputName + '"/>');
+                var textarea = $('<input type="hidden"/>');
             } else {
-                var textarea = $('<textarea cols="40" rows="10" name="' + settings.inputName + '"></textarea>');
+                var textarea = $('<textarea cols="40" rows="10"></textarea>');
             }
 
             textarea.val(content);
@@ -112,14 +112,13 @@
             // Get the input data
             t = textarea.get(0);
 
-
-            if(iframe.className) {
+            if(iframe.className)
                 t.classNam = iframe.className;
-            } else if(iframe.id) {
+            if(iframe.id)
                 t.id = iframe.id;
-            } else if(iframe.title) {
+            if(iframe.title)
                 t.name = iframe.title;
-            }
+
 
             // Add the textarea element before the iframe
             $(iframe).before(textarea);
@@ -131,8 +130,33 @@
             return textarea;
         }
 
+
         function toolbar(iframe) {
-            var tb = $('<div class="toolbar">toolbar</div>');
+            var tb = $('<section class="toolbar">\
+                            <ul class="styles basic">\
+                                <li class="bold toolbar-icon">b</li>\
+                                <li class="italic toolbar-icon">i</li>\
+                                <li class="underline toolbar-icon">u</li>\
+                            </ul>\
+                        </section>');
+
+            // Bold function
+            $('.bold', tb).on('click', function(){
+                formatText(iframe, 'bold');
+                return false;
+            });
+
+            // Italic function
+            $('.italic', tb).on('click', function(){
+                formatText(iframe, 'italic');
+                return false;
+            });
+
+            // Underline function
+            $('.underline', tb).on('click', function(){
+                formatText(iframe, 'underline');
+                return false;
+            });
 
             // The submit will be renderd before it's sent
             $(iframe).parents('form').submit(function(e){
