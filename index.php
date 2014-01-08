@@ -3,6 +3,7 @@
 <head>
     <title>Editor</title>
     <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/cceditor.css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/cceditor.js"></script>

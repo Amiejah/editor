@@ -1,0 +1,1 @@
+$(function(){var e=$('form[name="NewThreadForm"] textarea').attr("name");$('form[name="NewThreadForm"] textarea').CCEDITOR({inputName:e,toolbarPosition:"top"})});

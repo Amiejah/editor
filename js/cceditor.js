@@ -3,7 +3,8 @@
         var settings = $.extend({
             height: 250,
             width: 320,
-            inputName: 'NewThreadTopic'
+            inputName: 'NewThreadTopic',
+            toolbarPosition: 'top',
         }, options);
 
         var i = 0;
@@ -22,6 +23,10 @@
             } catch(e) {
                 console.log(e);
             }
+
+            $('.toolbar-icon').removeClass('toolbar-selected');
+            $('.' + option).addClass('toolbar-selected');
+
             iframe.contentWindow.focus();
         }
 
@@ -129,32 +134,38 @@
 
             return textarea;
         }
-
-
         function toolbar(iframe) {
             var tb = $('<section class="toolbar">\
                             <ul class="styles basic">\
-                                <li class="bold toolbar-icon">b</li>\
-                                <li class="italic toolbar-icon">i</li>\
-                                <li class="underline toolbar-icon">u</li>\
+                                <li class="bold toolbar-icon"><i class="fa fa-bold"></i></li>\
+                                <li class="italic toolbar-icon"><i class="fa fa-italic"></i></li>\
+                                <li class="underline toolbar-icon"><i class="fa fa-underline"></i></li>\
+                            </ul>\
+                            <ul class="toolbar">\
+                                <li class="image attachment upload"><i class="fa fa-camera"></i></li>\
                             </ul>\
                         </section>');
 
             // Bold function
             $('.bold', tb).on('click', function(){
-                formatText(iframe, 'bold');
+                formatText(iframe, 'bold', 'bold');
                 return false;
             });
 
             // Italic function
             $('.italic', tb).on('click', function(){
-                formatText(iframe, 'italic');
+                formatText(iframe, 'italic', 'italic');
                 return false;
             });
 
             // Underline function
             $('.underline', tb).on('click', function(){
-                formatText(iframe, 'underline');
+                formatText(iframe, 'underline', 'underline');
+                return false;
+            });
+
+            $('.upload', tb).on('click', function() {
+                imageAttachment(iframe);
                 return false;
             });
 
@@ -165,6 +176,28 @@
 
             return tb;
         }
+
+        // Creat the image atachment
+        // Append the upload controller
+        function imageAttachment(iframe){
+            var imageUploader = $('<div class="imageAttachment attachment" style="display:none;"><form name="' + iframe.title + '" action="/" method="POST"><input type="file"/></form></div>');
+
+            // Find the toolbar
+            if(settings.toolbarPosition == 'top') {
+                var toolbar = $(iframe).prev('.toolbar');
+            } else {
+                var toolbar = $(iframe).next('.toolbar');
+            }
+            $(toolbar).append(imageUploader);
+            $(imageUploader).slideDown();
+
+
+
+
+
+
+        }
+
 
     }
 }(jQuery));
