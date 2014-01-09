@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css"/>
     <link rel="stylesheet" href="css/cceditor.css"/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/jquery.form.js"></script>
     <script src="js/cceditor.js"></script>
     <script src="js/control.js"></script>
 </head>

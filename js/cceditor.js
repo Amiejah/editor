@@ -193,7 +193,11 @@
 
             // Capture the onchange Event
             $('input:file').on('change', function(){
-                $('.imageAttachment form').submit();
+                $('.imageAttachment form').ajaxSubmit();
+//                $('.imageAttachment form').submit(function(){
+//
+//
+//                });
             })
 
 

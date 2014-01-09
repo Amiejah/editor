@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imageName  = explode('.', $_FILES['image']['name']);
         // looking for format and size validity
         if (in_array($ext, $valid_exts) AND $_FILES['image']['size'] < $max_size) {
-            $path = $path . $imageName[0] . '.' .$ext;
+            $path = $path . strtolower($imageName[0]) . '.' .$ext;
             // move uploaded file from temp to uploads directory
             if (move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
                 echo "<img src='$path' />";
@@ -25,5 +25,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo 'Bad request!';
 }
-
-?>
