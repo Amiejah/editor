@@ -180,7 +180,7 @@
         // Creat the image atachment
         // Append the upload controller
         function imageAttachment(iframe){
-            var imageUploader = $('<div class="imageAttachment attachment" style="display:none;"><form name="' + iframe.title + '" action="/" method="POST"><input type="file"/></form></div>');
+            var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><input type="file" name="image" accept="image/*" /></form></div>');
 
             // Find the toolbar
             if(settings.toolbarPosition == 'top') {
@@ -189,7 +189,13 @@
                 var toolbar = $(iframe).next('.toolbar');
             }
             $(toolbar).append(imageUploader);
-            $(imageUploader).slideDown();
+            //$(imageUploader).slideDown();
+
+            // Capture the onchange Event
+            $('input:file').on('change', function(){
+                $('.imageAttachment form').submit();
+            })
+
 
 
 
