@@ -181,7 +181,7 @@
         // Creat the image atachment
         // Append the upload controller
         function imageAttachment(iframe){
-            var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><input type="file" name="image" accept="image/*" /></form></div>'),
+            var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><div class="attachmentFile"><label class="imageAttachmentUpload"><input type="file" name="image" accept="image/*" /></label><div class="attachmentInput"></div><div class="attachmentSubmit">Browse</div></div></form></div>'),
                 bar = $('.bar'),
                 percent = $('.percent'),
                 status = $('#status');
@@ -193,7 +193,8 @@
             } else {
                 var toolbar = $(iframe).next('.toolbar');
             }
-            $(toolbar).append(imageUploader);
+
+            $(imageUploader).insertAfter(toolbar).slideDown();
             //$(imageUploader).slideDown();
 
             // Capture the onchange Event

@@ -4,6 +4,26 @@
     A set of useful LESS mixins
     More info at: http://lesselements.com
   ---------------------------------------------------*/
+.attachment {
+  border-bottom: 1px solid #7f7f7f;
+  display: none;
+  padding: 5px;
+}
+.attachment .attachmentFile {
+  position: relative;
+  overflow: hidden;
+}
+.attachment .attachmentFile .imageAttachmentUpload input {
+  font-size: 1000px!important;
+  cursor: pointer;
+  width: 1000px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  -ms-filter: "alpha(opacity=0)";
+}
 section.toolbar ul {
   margin: 0;
   padding: 0;
@@ -33,8 +53,10 @@ section.toolbar ul .underline {
   background: -o-linear-gradient(#ececec, #b4b4b4);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#b4b4b4', GradientType=0);
   border-bottom: 1px solid #7f7f7f;
-  padding: 8px 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   color: #353434;
+  padding: 8px 5px;
 }
 .toolbar-skin.default section.toolbar ul li {
   border: 1px solid #737373;
