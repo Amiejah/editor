@@ -201,15 +201,13 @@
             $('input:file').on('change', function(){
                 $('.imageAttachment form').ajaxSubmit({
                     beforeSend: function(){
-
+                        // Create the upload progress before submitting
                     },
                     uploadProgress: function(event, position, total, percentComplete){
                         var percentVal = percentComplete  + '%';
-                        console.log(percentVal);
                     },
                     success: function(){
                         var percentVal = '100%';
-                        console.log(percentVal);
                     },
                     complete: function(xhr){
                         status.html(xhr.responseText);

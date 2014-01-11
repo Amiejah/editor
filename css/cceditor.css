@@ -24,6 +24,22 @@
   opacity: 0;
   -ms-filter: "alpha(opacity=0)";
 }
+.attachment .attachmentFile .attachmentInput,
+.attachment .attachmentFile .attachmentSubmit {
+  float: left;
+}
+.attachment .attachmentFile .attachmentInput {
+  border: 1px solid #ccc;
+  padding: 10px 0px;
+  width: 40%;
+}
+.attachment .attachmentFile .attachmentSubmit {
+  background: blue;
+  color: white;
+  padding: 4px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 section.toolbar ul {
   margin: 0;
   padding: 0;

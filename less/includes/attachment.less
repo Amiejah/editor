@@ -5,16 +5,34 @@
     .attachmentFile {
         position: relative;
         overflow: hidden;
-        .imageAttachmentUpload input {
-            font-size:1000px!important;
-            cursor:pointer;
-            width:1000px;
-            height:400px;
-            position:absolute;
-            top:0;
-            right:0;
-            opacity:0;
-            -ms-filter:"alpha(opacity=0)";
+        .imageAttachmentUpload {
+            input {
+                font-size:1000px!important;
+                cursor:pointer;
+                width:1000px;
+                height:400px;
+                position:absolute;
+                top:0;
+                right:0;
+                opacity:0;
+                -ms-filter:"alpha(opacity=0)";
+            }
+        }
+        .attachmentInput,
+        .attachmentSubmit {
+            float: left;
+        }
+        .attachmentInput {
+            border: 1px solid #ccc;
+            padding: 10px 0px;
+            width: 40%;
+        }
+        .attachmentSubmit {
+            background: blue;
+            color: white;
+            padding: 4px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
     }
 }
