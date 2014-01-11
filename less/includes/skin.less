@@ -1,0 +1,47 @@
+.toolbar-skin {
+    &.default {
+        border: 1px solid #7f7f7f;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+        font-size: 12px;
+        section.toolbar {
+            .gradient(#ececec, #b4b4b4, #ececec);
+            border-bottom: 1px solid #7f7f7f;
+            padding: 8px 5px;
+            color: #353434;
+            ul {
+                li {
+                    border: 1px solid #737373;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    display: inline-block;
+                    float: left;
+                    height: 15px;
+                    margin: 0 5px 0 0;
+                    line-height: 15px;
+                    padding: 3px;
+                    width: 15px;
+                    text-align: center;
+                    .gradient(#bfbfbf, #bfbfbf, #ededed);
+                    &:hover,
+                    &.toolbar-selected {
+                        background: #dadada;
+                    }
+                }
+            }
+            &:before,
+            &:after{
+                content: " ";
+                display: table;
+            }
+            &:after {
+                clear: both;
+            }
+        }
+        iframe {
+            width: 100%;
+        }
+    }
+}

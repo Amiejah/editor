@@ -1,29 +1,72 @@
-.toolbar ul {
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+section.toolbar ul {
   margin: 0;
   padding: 0;
 }
-.toolbar ul li {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  display: inline-block;
-  list-style: none;
-  margin: 0;
-  padding: 5px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 15px;
-}
-.toolbar ul .bold {
+section.toolbar ul .bold {
   font-weight: bold;
 }
-.toolbar ul .italic {
+section.toolbar ul .italic {
   font-style: italic;
 }
-.toolbar ul .underline {
+section.toolbar ul .underline {
   text-decoration: underline;
 }
-.toolbar ul .toolbar-selected {
-  background-color: lightblue;
+.toolbar-skin.default {
+  border: 1px solid #7f7f7f;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 12px;
+}
+.toolbar-skin.default section.toolbar {
+  background: #ececec;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b4b4b4), color-stop(1, #ececec));
+  background: -ms-linear-gradient(bottom, #b4b4b4, #ececec);
+  background: -moz-linear-gradient(center bottom, #b4b4b4 0%, #ececec 100%);
+  background: -o-linear-gradient(#ececec, #b4b4b4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#b4b4b4', GradientType=0);
+  border-bottom: 1px solid #7f7f7f;
+  padding: 8px 5px;
+  color: #353434;
+}
+.toolbar-skin.default section.toolbar ul li {
+  border: 1px solid #737373;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 15px;
+  margin: 0 5px 0 0;
+  line-height: 15px;
+  padding: 3px;
+  width: 15px;
+  text-align: center;
+  background: #bfbfbf;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #bfbfbf), color-stop(1, #ededed));
+  background: -ms-linear-gradient(bottom, #bfbfbf, #ededed);
+  background: -moz-linear-gradient(center bottom, #bfbfbf 0%, #ededed 100%);
+  background: -o-linear-gradient(#ededed, #bfbfbf);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bfbfbf', GradientType=0);
+}
+.toolbar-skin.default section.toolbar ul li:hover,
+.toolbar-skin.default section.toolbar ul li.toolbar-selected {
+  background: #dadada;
+}
+.toolbar-skin.default section.toolbar:before,
+.toolbar-skin.default section.toolbar:after {
+  content: " ";
+  display: table;
+}
+.toolbar-skin.default section.toolbar:after {
+  clear: both;
+}
+.toolbar-skin.default iframe {
+  width: 100%;
 }

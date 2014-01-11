@@ -144,6 +144,7 @@
                             <ul class="toolbar">\
                                 <li class="image attachment upload"><i class="fa fa-camera"></i></li>\
                             </ul>\
+                            <div class="clear"></div>\
                         </section>');
 
             // Bold function
@@ -180,7 +181,11 @@
         // Creat the image atachment
         // Append the upload controller
         function imageAttachment(iframe){
-            var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><input type="file" name="image" accept="image/*" /></form></div>');
+            var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><input type="file" name="image" accept="image/*" /></form></div>'),
+                bar = $('.bar'),
+                percent = $('.percent'),
+                status = $('#status');
+
 
             // Find the toolbar
             if(settings.toolbarPosition == 'top') {
@@ -193,18 +198,24 @@
 
             // Capture the onchange Event
             $('input:file').on('change', function(){
-                $('.imageAttachment form').ajaxSubmit();
-//                $('.imageAttachment form').submit(function(){
-//
-//
-//                });
-            })
+                $('.imageAttachment form').ajaxSubmit({
+                    beforeSend: function(){
 
+                    },
+                    uploadProgress: function(event, position, total, percentComplete){
+                        var percentVal = percentComplete  + '%';
+                        console.log(percentVal);
+                    },
+                    success: function(){
+                        var percentVal = '100%';
+                        console.log(percentVal);
+                    },
+                    complete: function(xhr){
+                        status.html(xhr.responseText);
+                    }
 
-
-
-
-
+                });
+            });
 
         }
 

@@ -11,9 +11,12 @@
     <script src="js/control.js"></script>
 </head>
 <body>
-    <section class="wrapper">
+    <section class="wrapper" style="width:420px;margin: 25px auto 0px;">
         <form name="NewThreadForm" action="post.php" method="post">
-            <textarea name="NewThreadForm[pagetext]" class="className">This is a test to test bla bla bla</textarea>
+            <div class="toolbar-skin default">
+                <textarea name="NewThreadForm[pagetext]" class="className">This is a test to test bla bla bla</textarea>
+            </div>
+
             <button type="submit">Save</button>
         </form>
 
