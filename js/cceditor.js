@@ -167,6 +167,7 @@
 
             $('.upload', tb).on('click', function() {
                 imageAttachment(iframe);
+                $(this).addClass('processing');
                 return false;
             });
 
@@ -182,10 +183,7 @@
         // Append the upload controller
         function imageAttachment(iframe){
             var imageUploader = $('<div class="imageAttachment attachment"><form enctype="multipart/form-data" name="' + iframe.title + '" action="upload.php" method="POST"><div class="attachmentFile"><label class="imageAttachmentUpload"><input type="file" name="image" accept="image/*" /></label><div class="attachmentInput"></div><div class="attachmentSubmit">Browse</div></div></form></div>'),
-                bar = $('.bar'),
-                percent = $('.percent'),
-                status = $('#status');
-
+                processBar = $('.processBar');
 
             // Find the toolbar
             if(settings.toolbarPosition == 'top') {
@@ -195,22 +193,37 @@
             }
 
             $(imageUploader).insertAfter(toolbar).slideDown();
-            //$(imageUploader).slideDown();
+
 
             // Capture the onchange Event
             $('input:file').on('change', function(){
                 $('.imageAttachment form').ajaxSubmit({
                     beforeSend: function(){
+
                         // Create the upload progress before submitting
+                        var process = $('<div class="processHolder"><div class="process-status"></div><div class="process"><span class="processBar" style="green"></span></div></div>');
+
+                        $(process).insertAfter(imageUploader);
+
+                        var percentVal = '0%',
+                            processBar = '.processBar',
+                            status = $('.process-status');
+
+
+                        // Set it to 0 first
+                        $(processBar).width(percentVal);
                     },
                     uploadProgress: function(event, position, total, percentComplete){
+
                         var percentVal = percentComplete  + '%';
+                        $(processBar).width(percentVal);
                     },
                     success: function(){
                         var percentVal = '100%';
+                        $(processBar).width(percentVal);
                     },
                     complete: function(xhr){
-                        status.html(xhr.responseText);
+                        //status.html(xhr.responseText);
                     }
 
                 });
